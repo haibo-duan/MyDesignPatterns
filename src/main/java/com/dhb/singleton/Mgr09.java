@@ -10,6 +10,8 @@ import java.util.stream.IntStream;
  *  第一个线程锁定之后，第二个线程判断不为空，则直接使用instalce,
  *  如果此时第一个线程对Mgr03对象还没实例化完成，如该对象内部存在一个耗时的引用，如果是一个数据库连接，
  *  则会导致第二个线程使用的对象不完整。出现空指针。因此更好的写法是加上volatile。以保证happen-before原则。
+ *
+ *  JIT编译器 进行JIT优化之后，会有很多的指令重排序，因此需要加volatile。但是这种方法还是不能够避免反序列化。
  */
 public class Mgr09 {
 
