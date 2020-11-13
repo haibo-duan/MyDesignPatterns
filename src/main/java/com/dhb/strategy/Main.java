@@ -13,5 +13,11 @@ public class Main {
 		Dog[] d = {new Dog(3),new Dog(5),new Dog(1),new Dog(8)};
 		sorter.sort(d);
 		System.out.println(Arrays.toString(d));
+
+		Dog[] d1 = {new Dog(3),new Dog(5),new Dog(1),new Dog(8)};
+		NewSorter<Dog> sort1 = new NewSorter<>();
+		DogComparator dogComparator = new DogComparator();
+		sort1.sort(d1,dogComparator);
+		System.out.println(Arrays.toString(d1));
 	}
 }
