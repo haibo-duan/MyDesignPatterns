@@ -19,4 +19,12 @@ public class Cat implements Comparable<Cat>{
 			return 0;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Cat{" +
+				"weight=" + weight +
+				", hight=" + hight +
+				'}';
+	}
 }

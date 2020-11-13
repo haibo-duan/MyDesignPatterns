@@ -19,5 +19,18 @@ public class Main {
 		DogComparator dogComparator = new DogComparator();
 		sort1.sort(d1,dogComparator);
 		System.out.println(Arrays.toString(d1));
+
+		Cat[] c = {new Cat(3,4),new Cat(2,5),new Cat(1,7),new Cat(8,1)};
+		NewSorter<Cat> catSort = new NewSorter<>();
+		catSort.sort(c,(o1,o2)-> {
+			if(o1.weight < o2.weight){
+				return -1;
+			}
+			if(o1.weight < o2.weight){
+				return 1;
+			}
+			return 0;
+		});
+		System.out.println(Arrays.toString(c));
 	}
 }
