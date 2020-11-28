@@ -28,7 +28,7 @@ public class ArrayList<E> implements Collection_<E> {
 		return index;
 	}
 
-	private class ArrayListIterator implements Iterator_ {
+	private class ArrayListIterator<E> implements Iterator_<E> {
 		private int currentIndex = 0;
 
 		@Override
@@ -40,8 +40,8 @@ public class ArrayList<E> implements Collection_<E> {
 		}
 
 		@Override
-		public Object next() {
-			Object o = objects[currentIndex];
+		public E next() {
+			E o = (E)objects[currentIndex];
 			currentIndex ++ ;
 			return o;
 		}

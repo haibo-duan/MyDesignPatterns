@@ -40,7 +40,7 @@ public class LinkedList<E> implements Collection_<E> {
 
 	}
 
-	class LinkedListIterator  implements Iterator_ {
+	class LinkedListIterator<E>  implements Iterator_<E> {
 
 		private Node<E> current = head;
 		@Override
