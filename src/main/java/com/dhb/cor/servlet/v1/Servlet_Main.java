@@ -32,7 +32,7 @@ class HTMLFilter implements Filter {
 
 	@Override
 	public boolean doFilter(Request request, Response response) {
-		request.str = request.str.replaceAll("<","[").replaceAll(">","}");
+		request.str = request.str.replaceAll("<","[").replaceAll(">","]");
 		return true;
 	}
 }
