@@ -25,27 +25,25 @@ public class Servlet_Main {
 }
 
 interface Filter {
-	boolean doFilter(Request request,Response response,FilterChain chain);
+	void doFilter(Request request,Response response,FilterChain chain);
 }
 
 class HTMLFilter implements Filter {
 
 	@Override
-	public boolean doFilter(Request request, Response response,FilterChain chain) {
+	public void doFilter(Request request, Response response,FilterChain chain) {
 		request.str = request.str.replaceAll("<","[").replaceAll(">","]")+"HTMLFilter ";
 		chain.doFilter(request,response);
 		response.str += "--HTMLFilter()";
-		return true;
 	}
 }
 
 class SensitiveFilter implements Filter {
 	@Override
-	public boolean doFilter(Request request, Response response,FilterChain chain) {
+	public void doFilter(Request request, Response response,FilterChain chain) {
 		request.str = request.str.replaceAll("966","955")+"SensitiveFilter ";
 		chain.doFilter(request,response);
 		response.str += "--SensitiveFilter()";
-		return true;
 	}
 }
 
@@ -60,14 +58,14 @@ class FilterChain {
 		return this;
 	}
 
-	public boolean doFilter(Request request, Response response) {
+	public void doFilter(Request request, Response response) {
 		if(index == filters.size()) {
-			return false;
+			return;
 		}
 		Filter filter = filters.get(index);
 		index ++;
 
-		return filter.doFilter(request,response,this);
+		filter.doFilter(request,response,this);
 	}
 }
 
